@@ -1,6 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, withStyles ,makeStyles} from '@material-ui/core';
+import { Switch, Route, Link } from "react-router-dom";
+import { AppBar, Toolbar, Typography ,makeStyles} from '@material-ui/core';
+import images from './components/Images';
+import insertimage from './components/Insertimage';
+import image from './components/Image';
 
 export default function Header(props) {
     const classes = useStyles();
@@ -23,7 +26,11 @@ export default function Header(props) {
             </Link>
           </Toolbar>
         </AppBar>
-
+        <Switch>
+            <Route exact path={["/", "/images"]} component={images} />
+            <Route exact path="/insert" component={insertimage} />
+            <Route path="/image/:id" component={image} />
+          </Switch>
 
       </div>
     )
